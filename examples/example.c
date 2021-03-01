@@ -8,7 +8,7 @@
 
 void heart_rate_example(void)
 {
-    rt_device_t dev = rt_device_find("max30102");
+    rt_device_t dev = rt_device_find("hr_max30102");
     if (dev == RT_NULL) {
         LOG_E("Find max30102 error");
         return ;
@@ -21,6 +21,7 @@ void heart_rate_example(void)
         if (rt_device_read(dev, 0, &data, sizeof(data)) == sizeof(data)) {
             LOG_D("heart rate: %d", data.data.hr);
         }
+				rt_thread_mdelay(1000);
     }
 
     rt_device_close(dev);

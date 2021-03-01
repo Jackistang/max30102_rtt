@@ -240,6 +240,9 @@ static rt_err_t max30102_control(struct rt_sensor_device *sensor, int cmd, void 
     RT_ASSERT(sensor);
     RT_ASSERT(arg);
 
+    if (cmd == RT_SENSOR_CTRL_SET_MODE || cmd == RT_SENSOR_CTRL_SET_POWER)
+        return RT_EOK;
+
     LOG_E("Now support command: (%d).", cmd);
     return RT_ERROR;
 }
@@ -423,7 +426,7 @@ static void max30102_thread_entry(void *args)
                     min = 0;
                 }
 
-                rt_kprintf("<max30102>: %d, %d, %d, %d\n", red, ir, threshold, g_heartrate);
+//                rt_kprintf("<max30102>: %d, %d, %d, %d\n", red, ir, threshold, g_heartrate);
 
                 last_red = pun_red_led;
                 last_if = pun_ir_led;

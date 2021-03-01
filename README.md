@@ -3,6 +3,10 @@
 
 MAX30102 传感器的软件包，已对接 sensor 框架，目前仅支持测量**心率**，血氧饱和度还不支持。
 
+心率波形图如下，软件为 [VOFA+](https://www.vofa.plus/) ，右上角 I0 为红光强度采样值，I2 为动态阈值，I3 为心率值。
+
+![心率](docs/images/心率.gif)
+
 ### 目录结构
 
 | 名称     | 说明         |
@@ -43,7 +47,7 @@ RT-Thread online packages
 ```C
 void heart_rate_example(void)
 {
-    rt_device_t dev = rt_device_find("max30102");
+    rt_device_t dev = rt_device_find("hr_max30102");
     if (dev == RT_NULL) {
         LOG_E("Find max30102 error");
         return ;
