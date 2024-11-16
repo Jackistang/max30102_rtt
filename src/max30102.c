@@ -221,7 +221,7 @@ static rt_bool_t maxim_max30102_reset()
 }
 
 
-static rt_size_t max30102_fetch_data(struct rt_sensor_device *sensor, void *buf, rt_size_t len)
+static RT_SIZE_TYPE max30102_fetch_data(struct rt_sensor_device *sensor, void *buf, rt_size_t len)
 {
     RT_ASSERT(sensor);
     RT_ASSERT(buf);

@@ -1,6 +1,5 @@
 #include <rtthread.h>
 #include <rtdevice.h>
-#include <sensor.h>
 
 #define DBG_LEVEL   DBG_LOG
 #include <rtdbg.h>
